@@ -11,7 +11,14 @@ const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-this-in-pro
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '7d'
 
 // Middleware
-app.use(cors())
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://portfolio-fe.onrender.com',
+    'https://portfolio-wyte.onrender.com'
+  ],
+  credentials: true
+}))
 app.use(express.json())
 
 // JWT Authentication Middleware
